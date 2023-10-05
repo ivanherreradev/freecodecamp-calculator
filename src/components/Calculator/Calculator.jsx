@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Display from '../Display/Display'
 import styles from './Calculator.module.css'
 
 const Calculator = () => {
+  const [input, setInput] = useState('')
+  const [output, setOutput] = useState('')
+
   return (
-    <div>Calculator</div>
+    <main className={styles.calculator}>
+      <Display value={input || output || '0'}/>
+    </main>
   )
 }
 
