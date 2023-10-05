@@ -8,6 +8,18 @@ const Calculator = () => {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
 
+  // Function to handle button clicks
+  const handleButtonClick = (value) => {
+    if (value === 'AC') {
+      // Clear input and output
+      setInput('')
+      setOutput('')
+    } else {
+      // Add the clicked value to the input
+      setInput((prevInput) => prevInput + value)
+    }
+  }
+
   return (
     <main className={styles.calculator}>
       <Display value={input || output || '0'} />
@@ -17,7 +29,7 @@ const Calculator = () => {
             key={button.id}
             id={button.id}
             value={button.value}
-            onClick={() => {}}
+            onClick={handleButtonClick}
             className={button.className}
           />
         ))}
