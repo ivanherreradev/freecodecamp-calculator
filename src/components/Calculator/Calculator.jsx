@@ -17,6 +17,25 @@ const Calculator = () => {
     } else if (value === 'DEL') {
       // Delete the last character from the input
       setInput((prevInput) => prevInput.slice(0, -1))
+    } else if (value === '.') {
+      // Split the expression by operators
+      const expressionParts = input.split(/[-+/*]/g)
+      // Get the last number
+      const lastNumber = expressionParts[expressionParts.length - 1]
+      // Check if the last number already contains a decimal point
+      if (!lastNumber.includes('.')) {
+        // Add a decimal point to the input
+        setInput((prevInput) => prevInput + value)
+      }
+    } else if (value === '0') {
+      // Prevent numbers starting with multiple zeros, except for '0.'
+      if (input !== '0' && !input.startsWith('0.')) {
+        // Add '0' to the input
+        setInput((prevInput) => prevInput + value)
+      } else if (input === '') {
+        // If input is empty, set it to '0'
+        setInput('0')
+      }
     } else {
       // Add the clicked value to the input
       setInput((prevInput) => prevInput + value)
