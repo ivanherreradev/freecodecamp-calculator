@@ -1,0 +1,11 @@
+.display {
+  height: 80px;
+  width: 100%;
+  outline: none;
+  border: none;
+  text-align: right;
+  margin-bottom: 8px;
+  font-size: 25px;
+  color: #000e1a;
+  pointer-events: none;
+}
