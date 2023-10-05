@@ -65,8 +65,12 @@ const Calculator = () => {
             key={button.id}
             id={button.id}
             value={button.value}
+            variant={button.className}
             onClick={handleButtonClick}
-            className={button.className}
+            style={{
+              gridColumn: button.id === 'zero' || button.id === 'clear' ? 'span 2' : '',
+              color: button.className === 'operator' ? '#793fdf' : ''
+            }}
           />
         ))}
       </section>
