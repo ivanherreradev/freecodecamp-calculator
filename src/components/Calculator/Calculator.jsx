@@ -17,6 +17,20 @@ const Calculator = () => {
     } else if (value === 'DEL') {
       // Delete the last character from the input
       setInput((prevInput) => prevInput.slice(0, -1))
+    } else if (value === '=') {
+      try {
+        // Use a regular expression to filter the input and remove consecutive characters
+        const filtered = input.match(/(\*|\+|\/|-)?(\.|\-)?\d+/g).join('')
+        // Evaluate the filtered expression
+        const result = eval(filtered)
+        // Update the input and output with the result
+        setInput(result.toString())
+        setOutput(result.toString())
+      } catch (error) {
+        // Handle errors by clearing input and displaying 'Error'
+        setInput('')
+        setOutput('Error')
+      }
     } else if (value === '.') {
       // Split the expression by operators
       const expressionParts = input.split(/[-+/*]/g)
