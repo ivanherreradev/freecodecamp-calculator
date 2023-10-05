@@ -36,7 +36,7 @@ export const buttons = [
   },
   {
     id: 'four',
-    value: '5',
+    value: '4',
     className: 'number'
   },
   {
