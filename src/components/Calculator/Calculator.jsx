@@ -14,6 +14,9 @@ const Calculator = () => {
       // Clear input and output
       setInput('')
       setOutput('')
+    } else if (value === 'DEL') {
+      // Delete the last character from the input
+      setInput((prevInput) => prevInput.slice(0, -1))
     } else {
       // Add the clicked value to the input
       setInput((prevInput) => prevInput + value)
